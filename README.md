@@ -4,6 +4,8 @@
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Code](https://img.shields.io/badge/Code-Java_-orange.svg)]()
+[![DOI](https://zenodo.org/badge/1126726798.svg)](https://doi.org/10.5281/zenodo.18132028)
+
 
 
 ## Abstract
