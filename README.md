@@ -90,65 +90,100 @@ Example:
 | Medium  | 20        | 50-200         | 100-500     | Medium-sized instances |
 | Large   | 15        | 200-1000       | 500-5000    | Large benchmark instances |
 
+
 ## Code Execution
 
-### Building the Project
+### Running the JAR
+
+#### Using Java directly:
 
 ```bash
-mvn clean package
+java -jar CBS.jar [instanceFolder] [outputFolder] [iterations] [reportF] [cutoff]
 ```
 
-### Running Experiments
+#### Using the run.sh script:
 
-Execution of the program can be done via the command line.
-
-**Example 1:** Execute default experiment with the default set of instances
 ```bash
-java -jar target/code.jar 
+./run.sh [instanceFolder] [outputFolder] [iterations] [reportF] [cutoff]
 ```
 
-**Example 2:** Execute using a different set of instances located inside the `newinstances` folder
+### Parameters
+
+| Parameter         | Description                                                      | Default value   |
+|-------------------|------------------------------------------------------------------|-----------------|
+| **instanceFolder**| Folder containing the input instances to process                  | `instances/test`|
+| **outputFolder**  | Folder where experiment results will be saved                     | `output/`       |
+| **iterations**    | Number of algorithm iterations                                   | `10000`         |
+| **reportF**       | Report frequency (how often to generate a report, in iterations) | `100`           |
+| **cutoff**        | Time limit in seconds for each instance                          | `15`            |
+
+### Usage Examples
+
+**Example 1: Use default values**
 ```bash
-java -jar target/code.jar --instances.path.default=newinstances
+java -jar CBS.jar
 ```
 
-**Example 3:** Execute with custom parameters
+**Example 2: Specify instance and output folders**
 ```bash
-java -jar target/code.jar --instances.path.default=newinstances --algorithm.maxIterations=1000 --seed=42
+java -jar CBS.jar instances/estateOfArt results/
 ```
 
-### Configuration Options
+**Example 3: Full custom configuration**
+```bash
+java -jar CBS.jar instances/ output/ 5000 50 30
+```
 
-Available command-line parameters:
-- `--instances.path.default`: Path to instances folder (default: `instances`)
-- `--algorithm.maxIterations`: Maximum number of iterations (default: `1000`)
-- `--algorithm.populationSize`: Population size for metaheuristics (default: `100`)
-- `--seed`: Random seed for reproducibility (default: `0`)
-- `--output.path`: Output directory for results (default: `results`)
+**Example 4: Quick test experiment**
+```bash
+java -jar CBS.jar instances/test output/ 100 10 5
+```
+
+**Example 5: Using the script**
+```bash
+./run.sh instances/estateOfArt results/ 10000 100 15
+```
 
 ## Requirements
 
 - Java 11 or higher
-- Maven 3.6+ (for building from source)
 - Minimum 4GB RAM recommended for large instances
+
 
 ### Dependencies
 
-All dependencies are managed through Maven and will be automatically downloaded during the build process. Main dependencies include:
-- MORK Framework (latest version)
-- Apache Commons Math3
-- JUnit 5 (for testing)
+The `libs/` folder is essential for running the application. It must contain all required JAR libraries (such as Apache POI, Commons, etc.) alongside `CBS.jar`. These libraries are necessary for the program to execute correctly.
+
+If you are sharing or deploying the project, always include the complete `libs/` directory with all its JAR files. Without these, the application will not run.
+
+Main required libraries include:
+- Apache POI
+- Apache Commons Collections
+- Apache Commons Compress
+- XMLBeans
+
+If building from source, dependencies may be managed by Maven, but for running the distributed JAR, the `libs/` folder is mandatory.
 
 ## Results
 
-Experimental results are stored in the `results` folder after execution. Each result file includes:
-- Instance name
-- Best solution found
-- Solution quality metrics
-- Execution time
-- Algorithm parameters used
+Experimental results are saved in the output folder you specify when running the program (e.g., `output/` or `results/`). If you do not specify an output folder, results will be placed in the default folder (`output/` or `results/` if it exists).
 
-Results can be analyzed using the provided visualization scripts in the `analysis` folder.
+The main output is an Excel (.xlsx) file containing a summary table for each experiment. The columns in the results file include:
+
+| Instance         | 1  | 2  |...| CPU Time (s) | CPU Time Best (s) | Iterations |
+|------------------|----|----|--------------|-------------------|------------|
+| instance6_6.txt  | 8  | 8  | ...|0.012418     | 0.00702           | 2          |
+| instance7_11.txt | 17 | 17 | ...|0.010102     | 0.005035          | 2          |
+| instance7_8.txt  | 10 | 10 | ...|0.008747     | 0.00446           | 2          |
+
+Where:
+- **Instance**: Name of the input file processed
+- **1**, **2**, ...: Solution values obtained in each run
+- **CPU Time (s)**: Total CPU time for the run
+- **CPU Time Best (s)**: CPU time to reach the best solution
+- **Iterations**: Number of iterations performed
+
+Results can be further analyzed using the provided visualization scripts in the `analysis` folder.
 
 ## License
 
