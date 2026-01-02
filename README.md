@@ -1,26 +1,26 @@
-# Title of the Paper Here <a href="https://doi.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/1/11/DOI_logo.svg" alt="DOI" width="20"/></a> <a href="https://doi.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Zenodo-gradient-square.svg" alt="Zenodo" width="60"/></a>
+# A variable neighborhood search approach for cyclic bandwidth sum problem <a href="https://doi.org/10.1016/j.knosys.2022.108680"><img src="https://upload.wikimedia.org/wikipedia/commons/1/11/DOI_logo.svg" alt="DOI" width="20"/></a> 
 
-<!-- Load Material Symbols Outlined for icons -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=mail" />
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Code](https://img.shields.io/badge/Code-Java-orange.svg)]()
-[![Framework](https://img.shields.io/badge/Powered_by-MORK-green.svg)](https://mork-optimization.com/)
+[![Code](https://img.shields.io/badge/Code-Java_-orange.svg)]()
 
 
 ## Abstract
 
-Paper under review. To be added upon acceptance.
+In this paper, we tackle the Cyclic Bandwidth Sum Problem (CBSP), consisting in minimizing the sum of the bandwidth of the edges of an input graph computed in a cycle-structured host graph. This problem has been widely studied in the literature due to its multiple real-world applications, such as circuit design, migration of telecommunication networks, or graph drawing, among others. Particularly, we tackle this problem by proposing a multistart procedure (MS-BVNS) whose main components are a new greedy constructive algorithm and an intensification strategy based on the Variable Neighborhood Search metaheuristic. Our algorithmic proposal is evaluated over a set of 40 instances previously studied in the literature and over a new proposed set of 66 well-known instances introduced in this paper. The obtained results have been satisfactory compared with the ones obtained by the best previous algorithm in the state of the art. The statistical tests performed indicate that the differences between the methods are significant.
 
 ## Authors
 
-- First Author <sup>1,*</sup> <a href="mailto:first.author@urjc.es" aria-label="First Author Email"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Email_Shiny_Icon.svg" alt="email" width="20" style="vertical-align:middle;"/></a> <a href="https://orcid.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID" width="20" style="vertical-align:middle;"/></a>
-- Second Author <sup>2</sup> <a href="mailto:second.author@institution.edu" aria-label="Second Author Email"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Email_Shiny_Icon.svg" alt="email" width="20" style="vertical-align:middle;"/></a> <a href="https://orcid.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID" width="20" style="vertical-align:middle;"/></a>
+- Sergio Cavero <sup>1,*</sup> <a href="mailto:sergio.cavero@urjc.es" aria-label="Sergio Cavero Email"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Email_Shiny_Icon.svg" alt="email" width="20" style="vertical-align:middle;"/></a> <a href="https://orcid.org/0000-0002-5258-5915"><img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID" width="20" style="vertical-align:middle;"/></a>
+- Eduardo G. Pardo <sup>1</sup> <a href="mailto:eduardo.pardo@urjc.es" aria-label="Eduardo G. Pardo Email"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Email_Shiny_Icon.svg" alt="email" width="20" style="vertical-align:middle;"/></a> <a href="https://orcid.org/0000-0002-6247-5269"><img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID" width="20" style="vertical-align:middle;"/></a>
+- Abraham Duarte <sup>1</sup> <a href="mailto:abraham.duarte@urjc.es" aria-label="Abraham Duarte Email"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Email_Shiny_Icon.svg" alt="email" width="20" style="vertical-align:middle;"/></a> <a href="https://orcid.org/0000-0002-4532-3124"><img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID" width="20" style="vertical-align:middle;"/></a>
+- Eduardo Rodriguez-Tello <sup>2</sup> <a href="mailto:ertello@cinvestav.mx" aria-label="Email"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Email_Shiny_Icon.svg" alt="email" width="20" style="vertical-align:middle;"/></a> <a href="https://orcid.org/0000-0002-0333-0633"><img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID" width="20" style="vertical-align:middle;"/></a>
 
 ### Affiliations
 
-1. Departamento de Informática y Estadística, Universidad Rey Juan Carlos — C. Tulipán, s/n, Móstoles, 28933, Madrid, Spain
-2. Department Name, Institution Name — Address, City, Postal Code, Country
+1. **Universidad Rey Juan Carlos**, Department of Computer Sciences, C/Tulipán s/n, 28903, Madrid, Spain
+2. **Cinvestav**, Unidad Tamaulipas, Km. 5.5 Carretera Victoria Soto La Marina, Victoria, 87130, Tamps., Mexico
 
 <sup>*</sup>Corresponding author.
 
@@ -40,22 +40,23 @@ Paper under review. To be added upon acceptance.
 - [Citation](#citation)
 - [Acknowledgments](#acknowledgments)
 - [Contact](#contact)
-- [Powered by MORK](#powered-by-mork-metaheuristic-optimization-framework)
-
 ---
 
 ## Repository Structure
 
 ```
 .
-├── instances/          # Problem instances
-├── results/           # Experimental results
-├── src/               # Source code
-├── target/            # Compiled artifacts
-├── analysis/          # Analysis scripts
+├── instances/          # Problem instances folder
+│   ├── test/          # Small test instances
+│   ├── estateOfArt/   # Literature benchmark instances
+│   └── newHB/         # New hard instances from Harwell-Boeing collection
+├── code/               # Jar and scripts to run the program
+│   ├── CBS.jar         # Compiled Java program
+│   ├── run.sh          # Script to run the program
+│   └── libs/           # Required libraries
 ├── LICENSE            # License file
-├── README.md          # This file
-└── pom.xml            # Maven configuration
+└── README.md          # This readme file
+
 ```
 
 ---
@@ -64,31 +65,20 @@ Paper under review. To be added upon acceptance.
 
 ## Datasets
 
-Instances are categorized in different datasets inside the `instances` folder.
+The computational tests are performed over two main sets of instances.
 
 ### Instance Format
 
 Each instance is encoded as a plain text file representing a graph:
 - The first line contains the number of vertices `n` and edges `m`.
 - Each subsequent line contains a pair of integers `u v` representing an edge between vertex `u` and vertex `v`.
-- Vertices are indexed from 0 to n-1.
-
-Example:
-```
-10 15
-0 1
-0 2
-1 3
-...
-```
 
 ### Dataset Statistics
 
-| Dataset | Instances | Vertices Range | Edges Range | Description |
-|---------|-----------|----------------|-------------|-------------|
-| Small   | 10        | 10-50          | 15-100      | Small test instances |
-| Medium  | 20        | 50-200         | 100-500     | Medium-sized instances |
-| Large   | 15        | 200-1000       | 500-5000    | Large benchmark instances |
+| Dataset | Instances | Description |
+|---------|-----------|-------------|
+| **Literature Set** | 40 | Includes 16 regular-structured graphs (paths, cycles, wheels, powers of cycles, Cartesian products) and 24 sparse matrices from the Harwell-Boeing collection. |
+| **New HB Set** | 66 | A new set of 66 hard instances derived from the Harwell-Boeing collection to further test algorithmic performance. |
 
 
 ## Code Execution
@@ -187,7 +177,15 @@ Results can be further analyzed using the provided visualization scripts in the 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+Summary:
+- You may reproduce, share, and adapt the material for non-commercial purposes only.
+- You must provide appropriate attribution, indicate changes, and link to the license.
+- Adapted material must be licensed under the same or a compatible license.
+- No additional restrictions or technological measures may be applied.
+
+Disclaimer: The material is provided as-is, without warranties. For the full legal code, see: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
 
 ### MIT License Summary
 
@@ -201,65 +199,41 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Funding
 
-This research was supported by:
+This research has been partially supported by:
 
-- **Grant Name/Number**: [Funding Agency Name] - Project Title (Grant #XXXXX)
-- **Grant Name/Number**: [Second Funding Source] - Project Title (Grant #YYYYY)
-- **Universidad Rey Juan Carlos** - Internal Research Funding Program
-
-The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.
+* **Ministerio de Ciencia, Innovación y Universidades** (Grants Ref. PGC2018-095322-B-C22, PID2021-1257090A-C22, and FPU19/04098).
+* **Comunidad de Madrid and European Regional Development Fund** (Grant Ref. P2018/TCS-4566).
 
 ## Citation
 
 If you use this work in your research, please cite our paper:
 
-### DOI
-
-<https://doi.org/XXXXXXX>
-
 ### Bibtex
 
 ```bibtex
-@article{citeKey2024,
-  title={Title of the Paper Here},
-  author={Surname, First Name and Surname2, Second Name},
-  journal={Journal Name},
-  volume={XX},
-  number={X},
-  pages={XXX--XXX},
-  year={20XX},
-  publisher={Publisher Name},
-  doi={XXXXXXX}
+@article{Cavero2022,
+  title={A variable neighborhood search approach for cyclic bandwidth sum problem},
+  author={Cavero, Sergio and Pardo, Eduardo G. and Duarte, Abraham and Rodriguez-Tello, Eduardo},
+  journal={Knowledge-Based Systems},
+  volume={246},
+  pages={108680},
+  year={2022},
+  publisher={Elsevier},
+  doi={10.1016/j.knosys.2022.108680}
 }
+
 ```
 
 ### APA Format
 
-Surname, F. N., & Surname2, S. N. (20XX). Title of the paper here. *Journal Name*, *XX*(X), XXX-XXX. https://doi.org/XXXXXXX
-
-### IEEE Format
-
-F. N. Surname and S. N. Surname2, "Title of the paper here," *Journal Name*, vol. XX, no. X, pp. XXX-XXX, 20XX, doi: XXXXXXX.
+Cavero, S., Pardo, E. G., Duarte, A., & Rodriguez-Tello, E. (2022). A variable neighborhood search approach for cyclic bandwidth sum problem. *Knowledge-Based Systems*, *246*, 108680. https://doi.org/10.1016/j.knosys.2022.108680
 
 ## Acknowledgments
 
-We would like to thank:
-- The reviewers for their valuable feedback and suggestions
-- [Name/Organization] for providing computational resources
-- The MORK development team for their excellent framework
-- Contributors who helped improve this work
+We would like to thank E. Rodriguez-Tello et al., authors of the best previous method in the state of the art (DMAB+MA) for sharing their code and their findings with us.
 
 ## Contact
 
 For questions, issues, or collaborations, please contact:
 
-- **First Author**: [first.author@urjc.es](mailto:first.author@urjc.es)
-- **Project Issues**: [GitHub Issues](https://github.com/username/repository/issues)
-- **Project Website**: [https://project-website.com](https://project-website.com)
-
-## Powered by MORK (Metaheuristic Optimization framewoRK)
-
-| ![Mork logo](https://user-images.githubusercontent.com/55482385/233611563-4f5c91f2-af36-4437-a4b5-572b6655487a.svg) | MORK is a Java framework for easily solving hard optimization problems. You can [create a project](https://generator.mork-optimization.com/) and try the framework in under one minute. See the [documentation](https://docs.mork-optimization.com/en/latest/) or the [source code](https://github.com/mork-optimization/mork). |
-|:--:|--|
-
----
+* **Sergio Cavero**: [sergio.cavero@urjc.es](mailto:sergio.cavero@urjc.es)
